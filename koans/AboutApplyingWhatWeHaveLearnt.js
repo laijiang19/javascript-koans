@@ -146,7 +146,27 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
-    
+
+    var largestPalindrome = function(){
+      var biggest = 0;
+      for (var i=999; i>=100; i--){
+        for (var j=999; j>=100; j--){
+          var prod = i*j;
+          if (isPalindrome(prod)){
+            biggest = Math.max(biggest,prod);
+          }
+        }
+      }
+
+      return biggest;
+
+    }
+
+    var isPalindrome = function(num){
+      return num==(num+'').split('').reverse().join('');
+    }
+
+    expect(largestPalindrome()).toBe(906609);
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {

@@ -108,8 +108,40 @@ describe("About Applying What We Have Learnt", function() {
 
   /*********************************************************************************/
   /* UNCOMMENT FOR EXTRA CREDIT */
-  /*
+  
   it("should find the largest prime factor of a composite number", function () {
+
+    var largestPrimeFactor = function(num){
+
+      for (var i=num; i>=2; i--){
+        if (num%i===0 && isPrime(i)){
+          return i;
+        }
+      }
+
+    }
+
+    var isPrime = function(num){
+      if (num === 2){
+        return false;
+      }
+
+      else if (num%2===0){
+        return false;
+      }
+      else {
+        for (var i=3; i<=Math.sqrt(num); i+=2){
+          if (num%i===0){
+            return false;
+          }
+        }
+      }
+      return true;
+    }
+
+    expect(largestPrimeFactor(20)).toBe(5);
+    expect(largestPrimeFactor(78)).toBe(13);
+    expect(largestPrimeFactor(75)).toBe(5);
   
   });
 
@@ -129,5 +161,5 @@ describe("About Applying What We Have Learnt", function() {
   it("should find the 10001st prime", function () {
 
   });
-  */
+  
 });

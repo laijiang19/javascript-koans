@@ -191,6 +191,39 @@ describe("About Applying What We Have Learnt", function() {
 
   it("should find the 10001st prime", function () {
 
+    var nthPrime = function(n){
+      var count = 2;
+      var i = 3;
+
+      while (count<n){
+        i+=2;
+        if (isPrime(i)){
+          count++;
+        }
+      }
+      return i;
+    }
+
+    var isPrime = function(num){
+      if (num === 2){
+        return false;
+      }
+
+      else if (num%2===0){
+        return false;
+      }
+      else {
+        for (var i=3; i<=Math.sqrt(num); i+=2){
+          if (num%i===0){
+            return false;
+          }
+        }
+      }
+      return true;
+    }
+
+    expect(nthPrime(10001)).toBe(104743);
+
   });
   
 });

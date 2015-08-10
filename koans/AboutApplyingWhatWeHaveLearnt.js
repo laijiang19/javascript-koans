@@ -170,12 +170,23 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
-      
     
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
-    
+
+    var diff = function(n){
+      var sum = 0;
+      var square = 0;
+      for (var i=n; i>0; i--){
+        sum += Math.pow(i,2);
+        square += i;
+      }
+      square = Math.pow(square,2);
+      return sum - square;
+    }
+
+    expect(diff(3)).toBe(-22);
   });
 
   it("should find the 10001st prime", function () {

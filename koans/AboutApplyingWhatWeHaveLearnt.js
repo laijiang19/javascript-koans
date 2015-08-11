@@ -170,7 +170,29 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
-    
+
+    var smallestDivisibleTo = function(num){
+
+      var gcd = function(a,b){
+        if (b===0){
+          return a;
+        }
+        else {
+          return gcd(b,a%b);
+        }
+      }
+
+      var smallestDivisible = function(a,b){
+        return a*b/gcd(a,b);
+      }
+
+      var arr = _.range(num,0,-1);
+      return _.reduce(arr,function(res,item){
+        return smallestDivisible(res,item);
+      },arr[0]);
+    }
+
+    expect(smallestDivisibleTo(20)).toBe(232792560);
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
